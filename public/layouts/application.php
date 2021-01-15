@@ -133,6 +133,8 @@
             </div>
         </div>
 
+        <img src="../images/banner-left.png?v=2" data-width="0" style="position: fixed; left: 49.5px; top: 120px;">
+        <img src="../images/banner-right.png?v=2" data-width="0" style="position: fixed; right: 49.5px; top: 120px;">
 
         <?= @$content ?>
 
