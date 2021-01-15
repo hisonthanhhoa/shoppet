@@ -7,124 +7,136 @@
     <title>Shop thú cưng</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="stylesheet" href="layouts/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
-        <p id="time"></p>
-        <div class="menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="../../images/logo.png" width="100px" height="100px" alt="logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php?c=dashboard&a=index">Trang chủ</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Thú cưng
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <?php
-                                    $query = "SELECT * FROM quan_li_loai_san_pham WHERE is_phu_kien = 0";
-                                    $rs = mysqli_query($conn, $query);
-
-
-                                    while ($each = mysqli_fetch_array($rs)) {
-                                    ?>
-
-                                        <li><a class="dropdown-item" href="#"><?= $each['ten_loai_san_pham'] ?></a></li>
-                                    <?php } ?>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Phụ kiện</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dịch vụ
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Spa </a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Chăm sóc hộ</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-
-                            <?php if (isset($_SESSION['dang-nhap'])) { ?>
-                                <li class="dropdown"> Xin chào, <?php echo $_SESSION['dang-nhap']['ten-dang-nhap'] ?><form action="?c=dashboard&a=logout" method="post"><button type="submit">Đăng Xuất</button></form>
-                                </li>
-
-                            <?php } else { ?>
-                                <li class="nav-item"> <a class="nav-link btn btn-outline-primary" aria-current="page" href="index.php?c=dashboard&a=dang_nhap">Đăng nhập</a></li>
+        <div class="row mb-5">
+            <p id="time"></p>
+            <div class="menu">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-warning">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="../images/file logo Son.png" style="height: 50px;" alt="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link btn" aria-current="page" href="index.php?c=dashboard&a=dang_ky">Đăng Ký</a>
+                                    <a class="nav-link active" aria-current="page" href="index.php?c=dashboard&a=index">Trang chủ</a>
                                 </li>
-                            <?php } ?>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Thú cưng
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <?php
+                                        $query = "SELECT * FROM quan_li_loai_san_pham WHERE is_phu_kien = 0";
+                                        $rs = mysqli_query($conn, $query);
 
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-outline-warning" aria-current="page" href="index.php?c=gio_hang&a=xem_gio_hang"> Giỏ Hàng <span class="badge badge-pill badge-warning bg-warning"><?= isset($_SESSION['gio_hang']) ? $_SESSION['gio_hang']['tong_san_pham'] : 0 ?></span></a>
-                            </li>
-                        </ul>
 
-                        <form class="d-flex" action="index.php" method="GET">
-                            <input class="form-control me-2" type="search" name="tim_kiem" placeholder="bạn cần tìm gì nào..." aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                                        while ($each = mysqli_fetch_array($rs)) {
+                                        ?>
+
+                                            <li><a class="dropdown-item" href="#"><?= $each['ten_loai_san_pham'] ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Phụ kiện</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dịch vụ
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Spa </a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Chăm sóc hộ</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav">
+
+                                <?php if (isset($_SESSION['dang-nhap'])) { ?>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Xin chào, <?php echo $_SESSION['dang-nhap']['ten-dang-nhap'] ?>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <form action="?c=dashboard&a=logout" method="post"><button type="submit" class="btn btn-danger">Đăng Xuất</button></form>
+                                        </ul>
+
+                                    <?php } else { ?>
+                                    <li class="nav-item"> <a class="nav-link btn btn-outline-primary" aria-current="page" href="index.php?c=dashboard&a=dang_nhap">Đăng nhập</a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-outline-primary " aria-current="page" href="index.php?c=dashboard&a=dang_ky">Đăng Ký</a>
+                                    </li>
+                                <?php } ?>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link btn btn-outline-danger" aria-current="page" href="index.php?c=gio_hang&a=xem_gio_hang"> Giỏ Hàng <span class="badge badge-pill badge-warning bg-danger"><?= isset($_SESSION['gio_hang']) ? $_SESSION['gio_hang']['tong_san_pham'] : 0 ?></span></a>
+                                </li>
+                            </ul>
+
+                            <form class="d-flex" action="index.php" method="GET">
+                                <input class="form-control me-2" type="search" name="tim_kiem" placeholder="bạn cần tìm gì nào..." aria-label="Search">
+                                <button class="btn btn-outline-danger bg-dảk" type="submit">Search</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-        <div class="banner">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://lh3.googleusercontent.com/j8TX75NFw3evmP8cMscgM3bSGIqW9V9pOjWc4xnAARjFIkZTag8oPVW1oWs3w7oK-otiDcpzeGtj01J87fAvtH8RiiiaoIj8ngM_LIqB7gewJHt0mBMMO0tkvHMD_YP2w_Z0U1ZXuxiqz9H8gDwv20HdaWj17zKgKFia7jZiMYy78Wh6EfCxb3HFoMoHEHBoUZBUg69ktJehZW99dIN6NQgGWxkZ26zYegpaP1JQNKhtOPiUldVxJG0gf5pyLsQdtG8Hc9ckfOyf2Fk4Fz7IabnkvbknU9JK9wrjY1G89hDIOcJQ5c9ZqHaFFLfEOiXgWQSvAjB75hy0TSAx6LTCR2ynhTqrNeZXmF7cAuW2V2bdlyioRCJUy8_FwdQ9uS--pxNIXwvuFM8bLgXxNN6QnSkR9Vzpjn-S4wyzvqQWGCLL4CStYQtb8iqN32HxJ6XwNL1Ev58Ax1Y0izc1Mnv5PVL2A-eM0X7MNSofHbH6j4SQuN6-VXlLaMm1S0hYkrcuKhw6Zy6UB3-bWq0e9XniVNjATFcpj6m3fW5DyjQyfxCz1ECt_pgvAxC0kGJnqfCHo28F2HCqQSNpTzotxJrnA5AnR3GW8MR49h8XiLAdcZUnaoOO0S7h7rieVnn2JpiBN9f93JfbKB8nlJpf4VzSlPvYhXGS_5I=w1259-h708-no" width="100%" height="250px" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <!-- Hình này đã chết -->
-                        <img src="https://lh3.googleusercontent.com/proxy/sd6Youi-tQ1h0tWuCGxG9vAVXMao2Fmq8YnhmperIojz9UF5ifSfD6jGf89ULMKo5Ka5Oc6BBWAOXmcvvov3yLhFgzQiJvf-PVOxC41UsLYHPb49px3xMbRi35IeEg" width="100%" height="250px" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://petparadise.com.vn/wp-content/uploads/2020/04/banner-01-1.jpg" width="100%" height="250px" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </a>
+                </nav>
             </div>
         </div>
 
+        <div class="row mt-5">
+            <div class="banner mt-4">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://lh3.googleusercontent.com/j8TX75NFw3evmP8cMscgM3bSGIqW9V9pOjWc4xnAARjFIkZTag8oPVW1oWs3w7oK-otiDcpzeGtj01J87fAvtH8RiiiaoIj8ngM_LIqB7gewJHt0mBMMO0tkvHMD_YP2w_Z0U1ZXuxiqz9H8gDwv20HdaWj17zKgKFia7jZiMYy78Wh6EfCxb3HFoMoHEHBoUZBUg69ktJehZW99dIN6NQgGWxkZ26zYegpaP1JQNKhtOPiUldVxJG0gf5pyLsQdtG8Hc9ckfOyf2Fk4Fz7IabnkvbknU9JK9wrjY1G89hDIOcJQ5c9ZqHaFFLfEOiXgWQSvAjB75hy0TSAx6LTCR2ynhTqrNeZXmF7cAuW2V2bdlyioRCJUy8_FwdQ9uS--pxNIXwvuFM8bLgXxNN6QnSkR9Vzpjn-S4wyzvqQWGCLL4CStYQtb8iqN32HxJ6XwNL1Ev58Ax1Y0izc1Mnv5PVL2A-eM0X7MNSofHbH6j4SQuN6-VXlLaMm1S0hYkrcuKhw6Zy6UB3-bWq0e9XniVNjATFcpj6m3fW5DyjQyfxCz1ECt_pgvAxC0kGJnqfCHo28F2HCqQSNpTzotxJrnA5AnR3GW8MR49h8XiLAdcZUnaoOO0S7h7rieVnn2JpiBN9f93JfbKB8nlJpf4VzSlPvYhXGS_5I=w1259-h708-no" width="100%" height="300px" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <!-- Hình này đã chết -->
+                            <img src="https://previews.123rf.com/images/photodeti/photodeti1809/photodeti180900126/107756896-group-of-pets-together-over-white-banner-isolated-on-white-background-.jpg" width="100%" height="300px" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://petparadise.com.vn/wp-content/uploads/2020/04/banner-01-1.jpg" width="100%" height="300px" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
         <?= @$content ?>
 
-        <div class="footer">
+        <div class="footer bg-light">
             <!-- Footer -->
             <footer class="page-footer font-small mdb-color lighten-3 pt-4">
                 <!-- Footer Links -->

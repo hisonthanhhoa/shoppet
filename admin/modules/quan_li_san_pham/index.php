@@ -1,15 +1,12 @@
 <?php
-$trang = 1; //khởi tạo trang ban đầu
-$gioi_han = 1; //số bản ghi trên 1 trang 
+$trang = 2; //khởi tạo trang ban đầu
+$gioi_han = 5; //số bản ghi trên 1 trang 
 
 $rs = mysqli_query($conn, "select count(id) as tong_san_pham from quan_li_san_pham");
 
 $tong_san_pham = mysqli_fetch_array($rs); //tính tổng số bản ghi 
 
 $tong_trang = ceil($tong_san_pham['tong_san_pham'] / $gioi_han); //tính tổng số trang sẽ chia
-$query = "SELECT * FROM quan_li_san_pham limit $trang, $gioi_han";
-
-$rs = mysqli_query($conn, $query);
 
 //xem trang có vượt giới hạn không:
 if (isset($_GET["trang"])) {
@@ -23,8 +20,9 @@ if (isset($_GET["trang"])) {
 } //nếu trang hiện tại vượt quá số trang được chia thì sẽ bằng trang cuối cùng
 
 // //tính start (vị trí bản ghi sẽ bắt đầu lấy):
-// $vi_tri = ($trang - 1) * $gioi_han;
-$query = "SELECT * FROM quan_li_san_pham";
+$vi_tri = ($trang - 1) * $gioi_han;
+
+$query = "SELECT * FROM quan_li_san_pham ORDER BY id desc limit $vi_tri, $gioi_han";
 
 $rs = mysqli_query($conn, $query);
 
@@ -46,7 +44,7 @@ $rs = mysqli_query($conn, $query);
         <tr>
             <td><?= $row['id'] ?></td>
             <td><?= $row['ten_san_pham'] ?></td>
-            <td><img src="<?= $row['anh_san_pham'] ?>" width="128px"></td>
+            <td><img src="<?= $row['anh_san_pham'] ?>" style="width: 128px; height: 128px;"></td>
             <td><?= $row['gia'] ?> VNĐ</td>
             <td><?= $row['so_luong'] ?></td>
             <td>

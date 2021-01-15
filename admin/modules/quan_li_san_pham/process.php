@@ -59,27 +59,29 @@ if ($a == 'delete') {
 // sủa  sản phẩm 
 
 if (isset($_POST['sua_san_pham'])) {
-    $id = $_POST['id_san_pham'];
-    $anh_cu = $_POST['anh_cu'];
+    // $id = $_POST['id_san_pham'];
+    // $anh_cu = $_POST['anh_cu'];
 
-    if($_FILES['anh_san_pham']['size'] > 0){
-        unlink($anh_cu);
-        move_uploaded_file($_FILES['anh_san_pham']['tmp_name'], $url);
-    } else if ($_FILES['anh_san_pham']['size'] == 0) {
-        $url = $anh_cu;
-    } 
-    $sql = "update quanlisanpham set
-        ten_san_pham = '$ten_san_pham',
-        anh_san_pham = '$url',
-        id_loai = '$loai_san_pham',
-        gia = $gia_san_pham,
-        so_luong = $so_luong,
-        tinh_trang = $tinh_trang     
-        where id = $id_san_pham 
-        ";
-    $rs = mysqli_query($conn, $sql);
-    if ($rs) {
-        echo "<script>alert('Xóa loại sản phẩm thành công'); window.location.replace('index.php?c=san_pham&a=index');</script>";
-    } else echo "<script>alert('Sửa Sản Phẩm Thất Bại'); history.go(-1);</script>";
+    // if($_FILES['anh_san_pham']['size'] > 0){
+    //     unlink($anh_cu);
+    //     move_uploaded_file($_FILES['anh_san_pham']['tmp_name'], $url);
+    // } else if ($_FILES['anh_san_pham']['size'] == 0) {
+    //     $url = $anh_cu;
+    // } 
+    // $sql = "update quanlisanpham set
+    //     ten_san_pham = '$ten_san_pham',
+    //     anh_san_pham = '$url',
+    //     id_loai = '$loai_san_pham',
+    //     gia = $gia_san_pham,
+    //     so_luong = $so_luong,
+    //     tinh_trang = $tinh_trang     
+    //     where id = $id_san_pham 
+    //     ";
+    // $rs = mysqli_query($conn, $sql);
+    // if ($rs) {
+    //     echo "<script>alert('Xóa loại sản phẩm thành công'); window.location.replace('index.php?c=san_pham&a=index');</script>";
+    // } else echo "<script>alert('Sửa Sản Phẩm Thất Bại'); history.go(-1);</script>";
+
+    echo "<script>alert('Đang cập nhật tính năng này'); window.location.replace('index.php?c=san_pham&a=index');</script>";
 }
 

@@ -1,48 +1,34 @@
+
+<?php
+    $id = $_SESSION['dang-nhap']['id'];
+    $sql = "select * from khach_hang where id = $id limit 1";
+    $rs = mysqli_query($conn, $sql);
+?>
 <div class="row">
-<form>
+
+<form class="container-fluid h-100 bg-light text-dark" action="index.php?c=khach_hang&a=process" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
+    <div>
+    <label for="id_khach">ID Khách hàng</label>
+     <input class="form-control" type="text" readonly name="ma_khach_hang" id="id_khach" value="<?php echo $_SESSION['dang-nhap']['id'] ?>">
+    </div>
+    <div>
+    <label for="ten_khach_hang">Tên Khách Hàng</label>
+     <input class="form-control" type="text" name="ho_va_ten" id="ten_khach_hang">
+    </div>
+    <div>
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
+      <input type="email" class="form-control" id="inputEmail4" name="email" >
   </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <div>
+    <label for="inputAddress">Địa chỉ</label>
+    <input type="text" class="form-control" id="inputAddress" name='dia_chi'>
   </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <div>
+    <label for="inputAddress">Số Điện Thoại</label>
+    <input type="text" class="form-control" id="inputcity" name='so_dien_thoai'>
+</div>
+  <button type="submit" class="btn btn-primary" name="cap_nhat_thong_tin">Cập Nhật</button>
 </form>
 </div>

@@ -33,9 +33,6 @@ switch ($controller) {
                 unset($_SESSION['dang-nhap']);
                 header('location: index.php?c=dashboard&a=index');
                 break;
-            case 'tim_kiem':
-                require_once('modules/search.php');
-                break;
 
             default:
                 # code...
@@ -78,12 +75,18 @@ switch ($controller) {
             case 'xem_tat_ca':
                 require_once('modules/view_all.php');
                 break;
+            case 'xem_chi_tiet':
+                require_once('modules/xemct.php');
+                break;
         }
         break;
     case 'khach_hang':
         switch ($action) {
             case 'cap_nhat':
                 require_once('modules/khach_hang/update.php');
+                break;
+            case 'process':
+                require_once('modules/khach_hang/process.php');
                 break;
         }
         break;

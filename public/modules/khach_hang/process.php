@@ -9,18 +9,18 @@ if (isset($_POST['cap_nhat_thong_tin'])) {
     $email = $_POST['email'];
 
     $sql = "update khach_hang set
-    ho_ten = '$ho_va_ten',
+    ho_ten = '$ho_ten',
     dia_chi = '$dia_chi',
     so_dien_thoai = '$so_dien_thoai',
     email = '$email'
     where id = $id
     ";
-
+    //die($sql);
     $rs = mysqli_query($conn, $sql);
 
     if ($rs) {
-        echo "<script>alert('Cập nhật thông tin thành công'); window.location.replace('index.php');</script>";
+        echo "<script>alert('Cập nhật thông tin thành công');window.location.replace('index.php');</script>";
     } else {
-        echo "<script>alert('Cập nhật thông tin thất bại'); history.go(-1);</script>";
+        echo "<script>alert('Cập nhật thông tin thất bại');</script>";
     }
 }

@@ -33,7 +33,7 @@
 
         <tr>
             <td colspan="5" style="text-align: right;">Tổng: </td>
-            <td colspan="2"><?= number_format($tong_gia) ?> VNĐ</td>
+            <td colspan="2"><?= isset($tong_gia) ? number_format($tong_gia) : '0' ?> VNĐ</td>
         </tr>
         <tr>
             <?php if (isset($_SESSION['gio_hang']) && $_SESSION['gio_hang']['tong_san_pham'] != 0) { ?>
