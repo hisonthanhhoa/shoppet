@@ -1,9 +1,9 @@
 ### HƯỚNG DẪN SỬ DỤNG
 
 > 1. Tạo cơ sở dữ liệu có tên `shopthucung`
-<br>
+
 > 2. Truy cập: `localhost:port/shoppet/admin` để truy cập site quản trị
-<br>
+
 > 3. Truy cập: `localhost:port/shoppet/public` để truy cập site khách hàng
 
 ### TÀI KHOẢN TRUY CẬP ADMIN SITE
