@@ -16,7 +16,7 @@
             $tong_gia = 0;
             foreach ($_SESSION['gio_hang'] as $key => $value) {
                 if ($key != 'tong_san_pham') {
-                    $tong_gia += $value['gia'] * $value['so_luong'];
+                    $tong_gia += $value['gia'] * $value['so_luong']; 
         ?>
                     <tr>
                         <td><?= $key ?></td>
@@ -27,7 +27,7 @@
                         <td><?= number_format($value['gia'] * $value['so_luong']) ?> VNĐ</td>
                         <td><a href="index.php?c=gio_hang&a=xoa_san_pham&id=<?= $key ?>" class="btn btn-danger">Xóa</a></td>
                     </tr>
-        <?php }
+        <?php } 
             }
         } ?>
 
