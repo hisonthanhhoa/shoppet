@@ -35,7 +35,9 @@ $each = mysqli_fetch_array($rs2);
             <td>Ảnh sản phẩm</td>
             <td>
                 <img src="<?= $each['anh_san_pham'] ?>" style="height: 128px" alt="">
-                <input type="file" name="anh_san_pham" id="anh_san_pham">
+                <input type="hidden" name="anh_cu" value="<?=  $row['anh_san_pham'] ?> "id="anh_san_pham">
+                <input type="file" name="anh_san_pham" id="anh_san_pham" class="type">
+
             </td>
         </tr>
         <tr>

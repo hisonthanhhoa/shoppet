@@ -57,31 +57,98 @@ if ($a == 'delete') {
     }
 }
 // sủa  sản phẩm 
+$ten_san_pham = $_POST['ten_san_pham'];
+$loai_san_pham = $_POST['loai_san_pham'];
+$gia = $_POST['gia'];
+$so_luong = $_POST['so_luong'];
+$tinh_trang = $_POST['tinh_trang'];
 
+$folder = "../images/";
+$ten_moi = date('dmY-' . time(), time());
+$duoi = explode(".", $_FILES['anh_san_pham']['name']);
+$ten_duoi = end($duoi);
+$ten_file = "$ten_moi.$ten_duoi";
+$url = $folder . basename($ten_file);
 if (isset($_POST['sua_san_pham'])) {
-    // $id = $_POST['id_san_pham'];
-    // $anh_cu = $_POST['anh_cu'];
+    $id = $_POST['id'];
+    $anh_cu = $_POST['anh_cu'];
 
-    // if($_FILES['anh_san_pham']['size'] > 0){
-    //     unlink($anh_cu);
-    //     move_uploaded_file($_FILES['anh_san_pham']['tmp_name'], $url);
-    // } else if ($_FILES['anh_san_pham']['size'] == 0) {
-    //     $url = $anh_cu;
-    // } 
-    // $sql = "update quanlisanpham set
-    //     ten_san_pham = '$ten_san_pham',
-    //     anh_san_pham = '$url',
-    //     id_loai = '$loai_san_pham',
-    //     gia = $gia_san_pham,
-    //     so_luong = $so_luong,
-    //     tinh_trang = $tinh_trang     
-    //     where id = $id_san_pham 
-    //     ";
-    // $rs = mysqli_query($conn, $sql);
-    // if ($rs) {
-    //     echo "<script>alert('Xóa loại sản phẩm thành công'); window.location.replace('index.php?c=san_pham&a=index');</script>";
-    // } else echo "<script>alert('Sửa Sản Phẩm Thất Bại'); history.go(-1);</script>";
+    if($_FILES['anh_san_pham']['size'] > 0){
+        unlink($anh_cu);
+        move_uploaded_file($_FILES['anh_san_pham']['tmp_name'], $url);
+    } else if ($_FILES['anh_san_pham']['size'] == 0) {
+        $url = $anh_cu;
+    }
+            $query = "UPDATE  quan_li_san_pham SET 
+             ten_san_pham=$ten_san_pham,
+             anh_san_pham = '$url',
+             gia= $gia,
+             so_luong= $so_luong,
+             mo_ta = '$mo_ta', 
+             tinh_trang=$tinh_trang,
+            ten_loai_san_pham= $loai_san_pham WHERE id = '$id'";
+             $rs = mysqli_query($conn, $query);
+    if ($rs) {
+        echo "<script>alert('Sửa Sản Phẩm Thành Công'); window.location.replace('index.php?c=san_pham&a=index');</script>";}
+   
 
-    echo "<script>alert('Đang cập nhật tính năng này'); window.location.replace('index.php?c=san_pham&a=index');</script>";
 }
+    // $target_dir = "../images/";
+    // $target_file = $target_dir . basename($_FILES["anh_san_pham"]["name"]);
+
+
+    // $uploadOk = 1;
+    // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // $date = getdate();
+    // // Check if image file is a actual image or fake image
+    // $new_target_file = $target_dir . $date['mday'] . $date['mon'] . $date['year'] . '-' . $date[0] . '.' . $imageFileType;
+
+    // $check = getimagesize($_FILES["anh_san_pham"]["tmp_name"]);
+    // if ($check !== false) {
+    //     $uploadOk = 1;
+    // } else {
+    //     $uploadOk = 0;
+    // }
+
+    // if ($uploadOk == 0) {
+    //     echo "Sorry, your file was not uploaded.";
+    //     // if everything is ok, try to upload file
+    // } else {
+    //     if ( $_FILES['anh_san_pham']['size']>0) {
+    //         unlink($new_target_file);
+    //         move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"], $new_target_file);}
+    //      else if($_FILES['anh_san_pham']['size']==0){
+
+    //             $target_file = $_POST('anh_san_pham');
+    //         }
+    //         $loai_san_pham = $_POST['loai_san_pham'];
+    //         $ten_san_pham = $_POST['ten_san_pham'];
+    //         $gia = $_POST['gia'];
+    //         $so_luong = $_POST['so_luong'];
+    //         $mo_ta = $_POST['mo_ta'];
+    //         $tinh_trang = $_POST['tinh_trang'];
+    //         $id= $_POST['id'];
+    //         $query = "UPDATE  quan_li_san_pham SET 
+    //         ten_san_pham=$ten_san_pham,
+    //         anh_san_pham = '$new_target_file',
+    //         gia= $gia,
+    //         so_luong= $so_luong,
+    //         mo_ta = '$mo_ta', 
+    //         tinh_trang=$tinh_trang,
+    //         ten_loai_san_pham= $loai_san_pham WHERE id = '$id'";
+    //         //die($query);
+
+    //         if (mysqli_query($conn, $query)) {
+    //             echo "<script>alert('Sửa sản phẩm thành công!'); window.location.replace('index.php?c=san_pham&a=index')</script>";
+    //         } else {
+    //             echo "<script>alert('Có lỗi xảy ra, vui lòng thử lại');</script>";
+    //         }
+    //     }} else {
+    //         echo "<script>alert('Có lỗi xảy ra, vui lòng thử lại');</script>";
+    //     }
+    
+
+    // echo "<script>alert('Đang cập nhật tính năng này'); window.location.replace('index.php?c=san_pham&a=index');</script>";
+
 

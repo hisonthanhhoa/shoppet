@@ -1,5 +1,5 @@
 <div class="row mt-3">
-    <h3>Có <?= isset($_SESSION['gio_hang']) ? $_SESSION['gio_hang']['tong_san_pham'] : 0 ?> sản phẩm trong giỏ hàng</h3>
+    <h3 class="text-danger">Có <?= isset($_SESSION['gio_hang']) ? $_SESSION['gio_hang']['tong_san_pham'] : 0 ?> sản phẩm trong giỏ hàng</h3>
 
     <table class="table table-striped mt-3">
         <tr>

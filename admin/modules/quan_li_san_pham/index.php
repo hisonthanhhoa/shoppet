@@ -1,5 +1,5 @@
 <?php
-$trang = 2; //khởi tạo trang ban đầu
+$trang = 1; //khởi tạo trang ban đầu
 $gioi_han = 5; //số bản ghi trên 1 trang 
 
 $rs = mysqli_query($conn, "select count(id) as tong_san_pham from quan_li_san_pham");

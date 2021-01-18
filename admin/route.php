@@ -92,6 +92,12 @@ switch ($controller) {
                 break;
         }
         break;
+        case 'hoa_don';
+            switch ($action)
+            {
+                case 'xem_hoa_don';
+                    require_once('modules/quan_li_hoa_don/view.php');
+            }
     default:
         # code...
         break;

@@ -13,9 +13,10 @@
 </head>
 
 <body>
+<div class="pyro"><div class="before"></div><div class="after"></div></div>
+
     <div class="container">
         <div class="row mb-5">
-            <p id="time"></p>
             <div class="menu">
                 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-warning">
                     <div class="container">
@@ -100,7 +101,6 @@
                 </nav>
             </div>
         </div>
-
         <div class="row mt-5">
             <div class="banner mt-4">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -114,7 +114,6 @@
                             <img src="https://lh3.googleusercontent.com/j8TX75NFw3evmP8cMscgM3bSGIqW9V9pOjWc4xnAARjFIkZTag8oPVW1oWs3w7oK-otiDcpzeGtj01J87fAvtH8RiiiaoIj8ngM_LIqB7gewJHt0mBMMO0tkvHMD_YP2w_Z0U1ZXuxiqz9H8gDwv20HdaWj17zKgKFia7jZiMYy78Wh6EfCxb3HFoMoHEHBoUZBUg69ktJehZW99dIN6NQgGWxkZ26zYegpaP1JQNKhtOPiUldVxJG0gf5pyLsQdtG8Hc9ckfOyf2Fk4Fz7IabnkvbknU9JK9wrjY1G89hDIOcJQ5c9ZqHaFFLfEOiXgWQSvAjB75hy0TSAx6LTCR2ynhTqrNeZXmF7cAuW2V2bdlyioRCJUy8_FwdQ9uS--pxNIXwvuFM8bLgXxNN6QnSkR9Vzpjn-S4wyzvqQWGCLL4CStYQtb8iqN32HxJ6XwNL1Ev58Ax1Y0izc1Mnv5PVL2A-eM0X7MNSofHbH6j4SQuN6-VXlLaMm1S0hYkrcuKhw6Zy6UB3-bWq0e9XniVNjATFcpj6m3fW5DyjQyfxCz1ECt_pgvAxC0kGJnqfCHo28F2HCqQSNpTzotxJrnA5AnR3GW8MR49h8XiLAdcZUnaoOO0S7h7rieVnn2JpiBN9f93JfbKB8nlJpf4VzSlPvYhXGS_5I=w1259-h708-no" width="100%" height="300px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <!-- Hình này đã chết -->
                             <img src="https://previews.123rf.com/images/photodeti/photodeti1809/photodeti180900126/107756896-group-of-pets-together-over-white-banner-isolated-on-white-background-.jpg" width="100%" height="300px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
@@ -135,7 +134,7 @@
 
         <img src="../images/banner-left.png?v=2" data-width="0" style="position: fixed; left: 49.5px; top: 120px;">
         <img src="../images/banner-right.png?v=2" data-width="0" style="position: fixed; right: 49.5px; top: 120px;">
-
+                <p id="time" class="text-danger"></p>
         <?= @$content ?>
 
         <div class="footer bg-light">
@@ -250,7 +249,7 @@
 
     </div>
 
-    <script src="./js/main.js"></script>
+    <script src="layouts/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>

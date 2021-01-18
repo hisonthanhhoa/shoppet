@@ -27,7 +27,7 @@
                             <a class="nav-link" href="index.php?c=san_pham&a=index">Quản Lí Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Disabled</a>
+                            <a class="nav-link" href="index.php?c=hoa_don&a=xem_hoa_don">Quản Lí Hóa Đơn</a>
                         </li>
                     </ul>
 
@@ -36,8 +36,8 @@
                             Xin chào, <?= $_SESSION['admin_login']['ten_dang_nhap'] ?>
                         </span>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Thông Tin Admin</a>
+                            <a class="dropdown-item" href="#">Thêm Nhân Viên </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="index.php?c=dashboard&a=logout">Đăng Xuất</a>
                         </div>
